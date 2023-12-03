@@ -44,7 +44,7 @@ export const typeDefs = `
     }
 
     type Query{
-        getCountry(
+        getOneCountry(
             id:Int
         ):[Country]
     }
@@ -63,10 +63,10 @@ export const resolvers = {
         ) => {
             return await getFiftyCitiesOfCountryService(args.limit,args.pageNumber)
         },
-        getCountry: async (
+        getOneCountry: async (
             _: unknown,
             args: {id:number},
-        ) => {
+    ) => {
             return await getOneCountryService(args.id)
         },
     }
