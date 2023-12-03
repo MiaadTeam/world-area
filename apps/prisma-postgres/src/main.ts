@@ -13,12 +13,13 @@ try {
     await createPrismaConnection();
   })
 
-  restRoutes(app);
   app.use(express.json());
   app.use(cors)
   app.use(bodyParser.urlencoded({
     extended: true
   }));
+  
+  restRoutes(app);
   
   app.listen(SERVER_PORT, () => {
     console.log(`Express server ( prisma + rest ) is up at http://localhost:${SERVER_PORT}`);
